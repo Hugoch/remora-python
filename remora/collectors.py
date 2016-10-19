@@ -1,8 +1,10 @@
 import threading
 import requests
 from requests.exceptions import RequestException
-from queue import Queue
-
+try:
+    from queue import Queue
+except ImportError:
+    from Queue import Queue
 
 class AsyncCollector:
     '''Collector which uses threads to send the events asynchronously.
